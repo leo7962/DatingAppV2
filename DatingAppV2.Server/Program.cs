@@ -1,4 +1,5 @@
 using DatingAppV2.Server.Extensions;
+using DatingAppV2.Server.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,7 @@ if (app.Environment.IsDevelopment())
 //app.UseCors(p => p.AllowAnyHeader().AllowAnyMethod()
 //.WithOrigins("http://localhost:4200", "https://localhost:4200"));
 
+app.UseMiddleware<ExceptionMiddleware>();
 app.UseCors(builder =>
 {
     builder.AllowAnyOrigin()
