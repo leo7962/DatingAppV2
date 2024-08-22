@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Component, inject} from '@angular/core';
 
 @Component({
   selector: 'app-test-error',
@@ -8,8 +8,8 @@ import { Component, inject } from '@angular/core';
 })
 export class TestErrorComponent {
   baseUrl = 'http://localhost:5081/api/';
-  private http = inject(HttpClient);
   validationErrors: string[] = [];
+  private http = inject(HttpClient);
 
   get400Error() {
     this.http.get(this.baseUrl + 'buggy/bad-request').subscribe({

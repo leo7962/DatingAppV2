@@ -1,8 +1,7 @@
-﻿namespace DatingAppV2.Server.DTOs
+﻿namespace DatingAppV2.Server.DTOs;
+
+public class LoginDto
 {
-    public class LoginDto
-    {
-        public required string UserName { get; set; }
-        public required string Password { get; set; }
-    }
+    public required string UserName { get; set; }
+    public required string Password { get; set; }
 }

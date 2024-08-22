@@ -1,26 +1,25 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
 
-namespace DatingAppV2.Server.Extensions
+namespace DatingAppV2.Server.Extensions;
+
+public static class IdentityServiceExtensions
 {
-    public static class IdentityServiceExtensions
+    public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration configuration)
     {
-        public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration configuration)
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
         {
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            var tokenKey = configuration["TokenKey"] ?? throw new Exception("TokenKey not found");
+            options.TokenValidationParameters = new TokenValidationParameters
             {
-                var tokenKey = configuration["TokenKey"] ?? throw new Exception("TokenKey not found");
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenKey)),
-                    ValidateIssuer = false,
-                    ValidateAudience = false
-                };
-            });
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenKey)),
+                ValidateIssuer = false,
+                ValidateAudience = false
+            };
+        });
 
-            return services;
-        }
+        return services;
     }
 }

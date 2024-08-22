@@ -1,69 +1,70 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
   <div class="container">
     <a class="navbar-brand" routerLink="/" routerLinkActive="active"
-      >Dating App</a
+    >Dating App</a
     >
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         @if (accountService.currentUser()) {
-        <li class="nav-item">
-          <a routerLink="/members" routerLinkActive="active" class="nav-link"
+          <li class="nav-item">
+            <a routerLink="/members" routerLinkActive="active" class="nav-link"
             >Matches</a
-          >
-        </li>
-        <li class="nav-item">
-          <a routerLink="/lists" routerLinkActive="active" class="nav-link"
+            >
+          </li>
+          <li class="nav-item">
+            <a routerLink="/lists" routerLinkActive="active" class="nav-link"
             >Lists</a
-          >
-        </li>
-        <li class="nav-item">
-          <a routerLink="/messages" routerLinkActive="active" class="nav-link"
+            >
+          </li>
+          <li class="nav-item">
+            <a routerLink="/messages" routerLinkActive="active" class="nav-link"
             >Messages</a
-          >
-        </li>
+            >
+          </li>
         }
         <li class="nav-item">
-          <a routerLink="/errors" routerLinkActive="active" class="nav-link"
-            >Errors</a
+          <a class="nav-link" routerLink="/errors" routerLinkActive="active"
+          >Errors</a
           >
         </li>
       </ul>
       @if (accountService.currentUser()) {
-      <div dropdown class="btn-group" dropdown>
-        <a
-          dropdownToggle
-          class="dropdown-toggle text-light text-decoration-none"
-          data-bs-toggle="dropdown"
+        <div dropdown class="btn-group" dropdown>
+          <a
+            dropdownToggle
+            class="dropdown-toggle text-light text-decoration-none"
+            data-bs-toggle="dropdown"
           >Welcome {{ accountService.currentUser()?.userName | titlecase }}
-        </a>
-        <div *dropdownMenu class="dropdown-menu">
-          <a class="dropdown-item">Edit profile</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" (click)="logout()">Logout</a>
+          </a>
+          <div *dropdownMenu class="dropdown-menu">
+            <a class="dropdown-item">Edit profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="logout()">Logout</a>
+          </div>
         </div>
-      </div>
-      } @if (!accountService.currentUser()) {
-      <form
-        #loginForm="ngForm"
-        (submit)="login()"
-        class="d-flex"
-        autocomplete="off"
-      >
-        <input
-          name="username"
-          [(ngModel)]="model.username"
-          class="form-control me-2"
-          placeholder="Username"
-        />
-        <input
-          name="password"
-          [(ngModel)]="model.password"
-          class="form-control me-2"
-          placeholder="Password"
-          type="password"
-        />
-        <button class="btn btn-success" type="submit">Login</button>
-      </form>
+      }
+      @if (!accountService.currentUser()) {
+        <form
+          #loginForm="ngForm"
+          (submit)="login()"
+          class="d-flex"
+          autocomplete="off"
+        >
+          <input
+            name="username"
+            [(ngModel)]="model.username"
+            class="form-control me-2"
+            placeholder="Username"
+          />
+          <input
+            name="password"
+            [(ngModel)]="model.password"
+            class="form-control me-2"
+            placeholder="Password"
+            type="password"
+          />
+          <button class="btn btn-success" type="submit">Login</button>
+        </form>
       }
     </div>
   </div>

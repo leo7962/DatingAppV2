@@ -1,36 +1,35 @@
-﻿using DatingAppV2.Server.Errors;
-using System.Net;
+﻿using System.Net;
 using System.Text.Json;
+using DatingAppV2.Server.Errors;
 
-namespace DatingAppV2.Server.Middleware
+namespace DatingAppV2.Server.Middleware;
+
+public class ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger, IHostEnvironment env)
 {
-    public class ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger, IHostEnvironment env)
+    public async Task InvokeAsync(HttpContext context)
     {
-        public async Task InvokeAsync(HttpContext context)
+        try
         {
-            try
+            await next(context);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, ex.Message);
+            context.Response.ContentType = "application/json";
+            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+
+            var response = env.IsDevelopment()
+                ? new ApiException(context.Response.StatusCode, ex.Message, ex.StackTrace)
+                : new ApiException(context.Response.StatusCode, ex.Message, "Internal server error.");
+
+            var options = new JsonSerializerOptions
             {
-                await next(context);
-            }
-            catch (Exception ex)
-            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
 
-                logger.LogError(ex, ex.Message);
-                context.Response.ContentType = "application/json";
-                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            var json = JsonSerializer.Serialize(response, options);
 
-                var response = env.IsDevelopment() ? new ApiException(context.Response.StatusCode, ex.Message, ex.StackTrace) : new ApiException(context.Response.StatusCode, ex.Message, "Internal server error.");
-
-                var options = new JsonSerializerOptions
-                {
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                };
-
-                var json = JsonSerializer.Serialize(response, options);
-
-                await context.Response.WriteAsync(json);
-
-            }
+            await context.Response.WriteAsync(json);
         }
     }
 }

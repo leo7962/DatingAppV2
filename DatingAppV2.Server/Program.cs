@@ -27,8 +27,8 @@ app.UseMiddleware<ExceptionMiddleware>();
 app.UseCors(builder =>
 {
     builder.AllowAnyOrigin()
-           .AllowAnyMethod()
-           .AllowAnyHeader();
+        .AllowAnyMethod()
+        .AllowAnyHeader();
 });
 
 app.UseHttpsRedirection();
