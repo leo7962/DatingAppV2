@@ -1,6 +1,6 @@
-﻿using System.Net;
+﻿using DatingAppV2.Server.Errors;
+using System.Net;
 using System.Text.Json;
-using DatingAppV2.Server.Errors;
 
 namespace DatingAppV2.Server.Middleware;
 

@@ -1,9 +1,9 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using DatingAppV2.Server.Entities;
+﻿using DatingAppV2.Server.Entities;
 using DatingAppV2.Server.Interfaces;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace DatingAppV2.Server.Services;
 

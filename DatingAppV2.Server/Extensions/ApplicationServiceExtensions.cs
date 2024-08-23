@@ -1,4 +1,5 @@
 ﻿using DatingAppV2.Server.Data;
+using DatingAppV2.Server.Helpers;
 using DatingAppV2.Server.Interfaces;
 using DatingAppV2.Server.Services;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,8 @@ public static class ApplicationServiceExtensions
         services.AddSwaggerGen();
         services.AddCors();
         services.AddScoped<ITokenService, TokenService>();
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddAutoMapper(typeof(AutoMapperProfiles));
 
         return services;
     }

@@ -1,11 +1,10 @@
-﻿using System.Security.Cryptography;
-using System.Text;
-using DatingAppV2.Server.Data;
+﻿using DatingAppV2.Server.Data;
 using DatingAppV2.Server.DTOs;
-using DatingAppV2.Server.Entities;
 using DatingAppV2.Server.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace DatingAppV2.Server.Controllers;
 
@@ -18,18 +17,19 @@ public class AccountController(DataContext context, ITokenService tokenService) 
     {
         if (await UserExists(registerDto.Username)) return BadRequest("Username is taken");
         using var hmac = new HMACSHA512();
+        return Ok();
 
-        var user = new AppUser
-        {
-            UserName = registerDto.Username.ToLower(),
-            PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-            PasswordSalt = hmac.Key
-        };
+        //var user = new AppUser
+        //{
+        //    UserName = registerDto.Username.ToLower(),
+        //    PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
+        //    PasswordSalt = hmac.Key
+        //};
 
-        await _context.Users.AddAsync(user);
-        await _context.SaveChangesAsync();
+        //await _context.Users.AddAsync(user);
+        //await _context.SaveChangesAsync();
 
-        return Ok(new UserDto { UserName = user.UserName, Token = tokenService.CreateToken(user) });
+        //return Ok(new UserDto { UserName = user.UserName, Token = tokenService.CreateToken(user) });
     }
 
     [HttpPost("login")]
