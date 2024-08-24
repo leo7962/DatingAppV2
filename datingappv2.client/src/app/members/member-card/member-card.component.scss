@@ -1,0 +1,131 @@
+// Variables para colores y tipografía
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$font-family: 'Roboto', sans-serif;
+
+// Estilos generales
+body {
+  font-family: $font-family;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+// Estilos para la tarjeta
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-img-wrapper {
+    img {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+  }
+
+  .card-body {
+    padding: 1rem;
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: $primary-color;
+    }
+
+    .card-text {
+      font-size: 1rem;
+      color: $secondary-color;
+    }
+  }
+}
+
+// Estilos para la fila y columnas
+.row {
+  margin: 0 -0.5rem;
+
+  .col-12, .col-sm-6, .col-md-4, .col-lg-3, .col-xl-2 {
+    padding: 0 0.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+// Estilos para los botones
+.member-icons {
+  position: absolute;
+  bottom: -30%;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+
+  @media (max-width: 576px) {
+    bottom: 0;
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+.card-img-wrapper {
+  overflow: hidden;
+  position: relative;
+
+  &:hover {
+    .member-icons {
+      bottom: 0;
+      opacity: 1;
+    }
+  }
+}
+
+// Animaciones para imágenes
+.card {
+  &:hover {
+    img {
+      transform: scale(1.2, 1.2);
+      transition-duration: 500ms;
+      transition-timing-function: ease-out;
+    }
+  }
+  img {
+    transform: scale(1, 1);
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+  }
+}
+
+// Media queries para responsividad
+@media (max-width: 576px) {
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-text {
+    font-size: 0.875rem;
+  }
+
+  .card-img-wrapper {
+    img {
+      transform: scale(1, 1);
+      transition-duration: 300ms;
+      transition-timing-function: ease-in-out;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .card-text {
+    font-size: 1.125rem;
+  }
+}

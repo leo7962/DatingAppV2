@@ -1,13 +1,14 @@
-import {HttpClient} from '@angular/common/http';
-import {inject, Injectable, signal} from '@angular/core';
-import {User} from '../_models/user';
-import {map} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable, signal } from '@angular/core';
+import { User } from '../_models/user';
+import { map } from 'rxjs';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AccountService {
-  baseUrl = 'http://localhost:5081/api/';
+  baseUrl = environment.apiUrl;
   currentUser = signal<User | null>(null);
   private http = inject(HttpClient);
 

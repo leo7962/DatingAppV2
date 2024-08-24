@@ -1,5 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Component, inject} from '@angular/core';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-test-error',
@@ -7,7 +8,7 @@ import {Component, inject} from '@angular/core';
   styleUrl: './test-error.component.scss',
 })
 export class TestErrorComponent {
-  baseUrl = 'http://localhost:5081/api/';
+  baseUrl = environment.apiUrl;
   validationErrors: string[] = [];
   private http = inject(HttpClient);
 

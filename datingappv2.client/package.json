@@ -1,6 +1,6 @@
 {
   "name": "datingappv2.client",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "run-script-os",
@@ -25,6 +25,7 @@
     "bootswatch": "^5.3.3",
     "font-awesome": "^4.7.0",
     "jest-editor-support": "*",
+    "ng-gallery": "^11.0.0",
     "ngx-bootstrap": "^18.0.2",
     "ngx-toastr": "^19.0.0",
     "run-script-os": "*",
@@ -44,5 +45,21 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.5.4"
-  }
+  },
+  "description": "This a project developed in Angular for DatingApp",
+  "main": "aspnetcore-https.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leo7962/DatingAppV2.git"
+  },
+  "keywords": [
+    "Angular",
+    "DotNET"
+  ],
+  "author": "Leonardo Fabián Hernández Peña",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/leo7962/DatingAppV2/issues"
+  },
+  "homepage": "https://github.com/leo7962/DatingAppV2#readme"
 }
