@@ -1,10 +1,10 @@
-import {Component, HostListener, inject, OnInit, ViewChild} from '@angular/core';
-import {Member} from '../../_models/member';
-import {AccountService} from '../../_services/account.service';
-import {MembersService} from '../../_services/members.service';
-import {TabsModule} from 'ngx-bootstrap/tabs';
-import {FormsModule, NgForm} from '@angular/forms';
-import {ToastrService} from 'ngx-toastr';
+import { Component, HostListener, inject, OnInit, ViewChild } from '@angular/core';
+import { Member } from '../../_models/member';
+import { AccountService } from '../../_services/account.service';
+import { MembersService } from '../../_services/members.service';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { FormsModule, NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-member-edit',

@@ -1,6 +1,6 @@
-import {Component, inject, OnInit} from '@angular/core';
-import {MembersService} from '../../_services/members.service';
-import {MemberCardComponent} from '../member-card/member-card.component';
+import { Component, inject, OnInit } from '@angular/core';
+import { MembersService } from '../../_services/members.service';
+import { MemberCardComponent } from '../member-card/member-card.component';
 
 @Component({
   selector: 'app-member-list',
