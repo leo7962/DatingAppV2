@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
-import { environment } from '../../environments/environment';
-import { Member } from '../_models/member';
-import { of, tap } from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {inject, Injectable, signal} from '@angular/core';
+import {environment} from '../../environments/environment';
+import {Member} from '../_models/member';
+import {of, tap} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

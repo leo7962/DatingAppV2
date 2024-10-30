@@ -5,63 +5,75 @@ $color_3: #404040;
 $background-color_1: #fff;
 
 .tab-panel {
-	border: 1px solid #ddd;
-	padding: 10px;
-	border-radius: 4px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
 }
+
 .nav-tabs {
-	>li.open {
-		border-bottom: 4px solid #fbcdcf;
-	}
+  > li.open {
+    border-bottom: 4px solid #fbcdcf;
+  }
 }
+
 .member-tabset {
-	>.nav-tabs {
-		>li {
-			&:hover {
-				border-bottom: 4px solid #fbcdcf;
-				>a {
-					border: 0;
-					background: none !important;
-					color: $color_1;
-					>i {
-						color: $color_2;
-					}
-				}
-				.dropdown-menu {
-					margin-top: 0px;
-				}
-			}
-		}
-		>li.open {
-			>a {
-				border: 0;
-				background: none !important;
-				color: $color_1;
-				>i {
-					color: $color_2;
-				}
-			}
-			.dropdown-menu {
-				margin-top: 0px;
-			}
-		}
-		>li.active {
-			border-bottom: 4px solid #E95420;
-			position: relative;
-			>a {
-				border: 0 !important;
-				color: $color_1;
-				>i {
-					color: $color_3;
-				}
-			}
-		}
-	}
-	>.tab-content {
-		margin-top: -3px;
-		background-color: $background-color_1;
-		border: 0;
-		border-top: 1px solid #eee;
-		padding: 15px 0;
-	}
+  > .nav-tabs {
+    > li {
+      &:hover {
+        border-bottom: 4px solid #fbcdcf;
+
+        > a {
+          border: 0;
+          background: none !important;
+          color: $color_1;
+
+          > i {
+            color: $color_2;
+          }
+        }
+
+        .dropdown-menu {
+          margin-top: 0px;
+        }
+      }
+    }
+
+    > li.open {
+      > a {
+        border: 0;
+        background: none !important;
+        color: $color_1;
+
+        > i {
+          color: $color_2;
+        }
+      }
+
+      .dropdown-menu {
+        margin-top: 0px;
+      }
+    }
+
+    > li.active {
+      border-bottom: 4px solid #E95420;
+      position: relative;
+
+      > a {
+        border: 0 !important;
+        color: $color_1;
+
+        > i {
+          color: $color_3;
+        }
+      }
+    }
+  }
+
+  > .tab-content {
+    margin-top: -3px;
+    background-color: $background-color_1;
+    border: 0;
+    border-top: 1px solid #eee;
+    padding: 15px 0;
+  }
 }
