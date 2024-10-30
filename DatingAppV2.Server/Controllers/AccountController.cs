@@ -1,10 +1,10 @@
-﻿using DatingAppV2.Server.Data;
+﻿using System.Security.Cryptography;
+using System.Text;
+using DatingAppV2.Server.Data;
 using DatingAppV2.Server.DTOs;
 using DatingAppV2.Server.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace DatingAppV2.Server.Controllers;
 

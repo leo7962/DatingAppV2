@@ -1,17 +1,17 @@
-﻿using AutoMapper;
+﻿using System.Security.Claims;
+using AutoMapper;
 using DatingAppV2.Server.DTOs;
 using DatingAppV2.Server.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace DatingAppV2.Server.Controllers;
 
 [Authorize]
 public class UsersController(IUserRepository userRepository, IMapper mapper) : BaseApiController
 {
-    private readonly IUserRepository userRepository = userRepository;
     private readonly IMapper mapper = mapper;
+    private readonly IUserRepository userRepository = userRepository;
 
     [HttpGet]
     public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
