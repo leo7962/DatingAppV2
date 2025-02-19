@@ -6,11 +6,10 @@ import { HomeComponent } from './home/home.component';
 import { NgxSpinnerComponent } from 'ngx-spinner';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, NavComponent, HomeComponent, NgxSpinnerComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+    selector: 'app-root',
+    imports: [RouterOutlet, NavComponent, HomeComponent, NgxSpinnerComponent],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   private accountService = inject(AccountService);

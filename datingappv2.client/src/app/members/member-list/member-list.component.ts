@@ -3,11 +3,10 @@ import { MembersService } from '../../_services/members.service';
 import { MemberCardComponent } from '../member-card/member-card.component';
 
 @Component({
-  selector: 'app-member-list',
-  standalone: true,
-  templateUrl: './member-list.component.html',
-  styleUrl: './member-list.component.scss',
-  imports: [MemberCardComponent],
+    selector: 'app-member-list',
+    templateUrl: './member-list.component.html',
+    styleUrl: './member-list.component.scss',
+    imports: [MemberCardComponent]
 })
 export class MemberListComponent implements OnInit {
   memberService = inject(MembersService);
